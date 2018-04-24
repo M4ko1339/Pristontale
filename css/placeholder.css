@@ -1,0 +1,37 @@
+body
+{
+    background-color: #111;
+    color: #DDD;
+    margin: 0px;
+    padding: 0px;
+}
+
+.container
+{
+    margin-bottom: 30px;
+}
+
+.logo
+{
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.content
+{
+    font-size: 2rem;
+}
+
+i.icon-orange {
+    color: orange;
+}
+
+.discord
+{
+    background-color: #7289da;
+}
+
+.discord:hover, .discord:active, .discord:focus
+{
+    background-color: #4A67CF;
+}
