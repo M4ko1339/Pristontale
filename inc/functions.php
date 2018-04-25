@@ -200,6 +200,25 @@ Class User
         }
     }
 
+    public function EmailExists($email)
+    {
+        global $con_game;
+
+        $data = $con_game->prepare('SELECT COUNT(*) FROM AllGameUser WHERE [email] = :email');
+        $data->execute(array(
+            ':email' => $email
+        ));
+
+        if($data->fetchColumn() == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public function UserCP($username, $column)
     {
         global $con_game;
