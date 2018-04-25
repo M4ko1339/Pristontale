@@ -29,7 +29,7 @@ $shop = new Shop();
                         <tr>
                             <td><?php echo $row['item_name']; ?></td>
                             <td><?php echo $row['item_description']; ?></td>
-                            <td><?php echo $row['item_price']; ?></td>
+                            <td class="green-text"><?php echo $row['item_price']; ?> Coins</td>
                             <td><a href="order.php?itemid=<?php echo $row['id']; ?>" class="btn small">Buy</a></td>
                         </tr>
                     <?php endforeach; ?>
