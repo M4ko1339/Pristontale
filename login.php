@@ -47,25 +47,25 @@ $user = new User();
                                         <?php exit; ?>
                                     <?php else: ?>
                                         <div class="messagebox col s12 red">
-                                            <?php $log->Action($_SESSION['username'], 'Login', 'Tried logging in with invalid credentials: ' . $_POST['username'] . ':' . $_POST['password']); ?>
+                                            <?php $log->Action($_POST['username'], 'Login', 'Tried logging in with invalid credentials: ' . $_POST['username'] . ':' . $_POST['password']); ?>
                                             Wrong username or password!
                                         </div>
                                     <?php endif; ?>
                                 <?php else: ?>
                                     <div class="messagebox col s12 red">
-                                        <?php $log->Action($_SESSION['username'], 'Login', 'Tried logging in with invalid captcha'); ?>
+                                        <?php $log->Action($_POST['username'], 'Login', 'Tried logging in with invalid captcha'); ?>
                                         Captcha was incorrect!
                                     </div>
                                 <?php endif; ?>
                             <?php else: ?>
                                 <div class="messagebox col s12 red">
-                                    <?php $log->Action($_SESSION['username'], 'Login', 'Tried logging in with invalid password format: ' . $_POST['password']); ?>
+                                    <?php $log->Action($_POST['username'], 'Login', 'Tried logging in with invalid password format: ' . $_POST['password']); ?>
                                     Wrong username or password!
                                 </div>
                             <?php endif; ?>
                         <?php else: ?>
                             <div class="messagebox col s12 red">
-                                <?php $log->Action($_SESSION['username'], 'Login', 'Tried logging in with invalid username format: ' . $_POST['username']); ?>
+                                <?php $log->Action($_POST['username'], 'Login', 'Tried logging in with invalid username format: ' . $_POST['username']); ?>
                                 Wrong username or password!
                             </div>
                         <?php endif; ?>
