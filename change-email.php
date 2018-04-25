@@ -51,20 +51,24 @@ $user = new User();
                         <?php if(preg_match("/[a-zA-Z0-9-_]+@+[a-zA-Z0-9]+\.+[a-zA-Z]{2,7}/", $_POST['email'])): ?>
                             <?php if($user->Captcha($_SERVER['REMOTE_ADDR'])): ?>
                                 <?php if($user->ChangeEmail($_SESSION['username'], $_POST['email'])): ?>
+                                    <?php $log->Action($_SESSION['username'], 'Change-email', 'Email changed to: ' . $_POST['email']); ?>
                                     <div class="messagebox col s12 green">
                                         Email has been changed!
                                     </div>
                                 <?php else: ?>
+                                    <?php $log->Action($_SESSION['username'], 'Change-email', 'Email could not be changed with parameter: ' . $_POST['email']); ?>
                                     <div class="messagebox col s12 red">
                                         Email could not be changed!
                                     </div>
                                 <?php endif; ?>
                             <?php else: ?>
+                                <?php $log->Action($_SESSION['username'], 'Change-email', 'Captcha was incorrect!'); ?>
                                 <div class="messagebox col s12 red">
                                     Captcha was incorrect!
                                 </div>
                             <?php endif; ?>
                         <?php else: ?>
+                            <?php $log->Action($_SESSION['username'], 'Change-email', 'Email was incorrect format: ' . $_POST['email']); ?>
                             <div class="messagebox col s12 red">
                                 Email is not valid!
                             </div>

@@ -15,6 +15,8 @@ if(isset($_GET['logout']))
     }
 }
 
+$log = new Logging();
+
 ?>
 <html>
 <head>

@@ -440,11 +440,11 @@ Class Shop
 
 Class Logging
 {
-    public function UserLog($username, $page, $action)
+    public function Action($username, $page, $action)
     {
         global $con;
 
-        $data = $con->prepare('INSERT INTO logs (page, username, action, ip, logdate)
+        $data = $con->prepare('INSERT INTO logs (page, username, action, ip_address, log_date)
         VALUES(:page, :username, :action, :ip, :logdate)');
         $data->execute(array(
             ':page'     => $page,

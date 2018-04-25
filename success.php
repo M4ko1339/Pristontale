@@ -16,6 +16,7 @@ $order = new Order();
     <div class="row">
         <div class="content col s12">
             <?php if(isset($_GET['order_id']) && $order->Check($_GET['order_id'])): ?>
+                <?php $log->Action($_SESSION['username'], 'Success', 'Successfully donated with order id: ' . $_GET['order_id']); ?>
                 <div class="user-data col s12">
                     <label>Thank you for your contribution</label>
                 </div>
@@ -39,6 +40,7 @@ $order = new Order();
                     </table>
                 </div>
             <?php else: ?>
+                <?php $log->Action($_SESSION['username'], 'Success', 'Invalid order id parameter: ' . $_GET['order_id']); ?>
                 Order was not found!
             <?php endif; ?>
         </div>

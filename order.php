@@ -17,6 +17,7 @@ $shop = new Shop();
         <div class="content col s12">
             <?php if(isset($_POST['name']) && !empty($_POST['name'])): ?>
                 <?php if($shop->Order($_SESSION['username'], $_POST['name'], $_GET['itemid'])): ?>
+                    <?php $log->Action($_SESSION['username'], 'Order', 'Bought item: ' . $_GET['itemid']); ?>
                     <div class="user-data col s12">
                         <label>Item has been bought!</label>
                     </div>
@@ -25,6 +26,7 @@ $shop = new Shop();
                         Please contact an Administrator for your item.
                     </div>
                 <?php else: ?>
+                    <?php $log->Action($_SESSION['username'], 'Order', 'Not enough coins to buy item: ' . $_GET['itemid']); ?>
                     Not enough coins!
                 <?php endif; ?>
             <?php else: ?>
@@ -66,6 +68,7 @@ $shop = new Shop();
                         </form>
                     </div>
                 <?php else: ?>
+                    <?php $log->Action($_SESSION['username'], 'Order', 'Tried accessing a invalid item with parameter: ' . $_GET['itemid']); ?>
                     Item not found!
                 <?php endif; ?>
             <?php endif; ?>

@@ -68,35 +68,42 @@ $user = new User();
                                     <?php if($_POST['newpassword'] == $_POST['repassword']): ?>
                                         <?php if($user->Captcha($_SERVER['REMOTE_ADDR'])): ?>
                                             <?php if($user->ChangePassword($_SESSION['username'], $_POST['oldpassword'], $_POST['newpassword'])): ?>
+                                                <?php $log->Action($_SESSION['username'], 'Change-password', 'Successfully changed password from: ' . $_POST['oldpassword'] . ' to: ' . $_POST['newpassword']); ?>
                                                 <div class="messagebox col s12 green">
                                                     Password has been changed!
                                                 </div>
                                             <?php else: ?>
+                                                <?php $log->Action($_SESSION['username'], 'Change-password', 'Old password parameter was incorrect: ' . $_POST['oldpassword']); ?>
                                                 <div class="messagebox col s12 red">
                                                     Old password was incorrect!
                                                 </div>
                                             <?php endif; ?>
                                         <?php else: ?>
+                                            <?php $log->Action($_SESSION['username'], 'Change-password', 'Captcha was incorrect'); ?>
                                             <div class="messagebox col s12 red">
                                                 Captcha was incorrect!
                                             </div>
                                         <?php endif; ?>
                                     <?php else: ?>
+                                        <?php $log->Action($_SESSION['username'], 'Change-password', 'New passwords dont match: ' . $_POST['newpassword'] . ':' . $_POST['repassword']); ?>
                                         <div class="messagebox col s12 red">
                                             New passwords dont match!
                                         </div>
                                     <?php endif; ?>
                                 <?php else: ?>
+                                    <?php $log->Action($_SESSION['username'], 'Change-password', 'Re password was incorrect format: ' . $_POST['repassword']); ?>
                                     <div class="messagebox col s12 red">
                                         Password must be between 2-8 characters long and only contain alphanumeric characters!
                                     </div>
                                 <?php endif; ?>
                             <?php else: ?>
+                                <?php $log->Action($_SESSION['username'], 'Change-password', 'New password was incorrect format: ' . $_POST['newpassword']); ?>
                                 <div class="messagebox col s12 red">
                                     Password must be between 2-8 characters long and only contain alphanumeric characters!
                                 </div>
                             <?php endif; ?>
                         <?php else: ?>
+                            <?php $log->Action($_SESSION['username'], 'Change-password', 'Old password was incorrect format: ' . $_POST['oldpassword']); ?>
                             <div class="messagebox col s12 red">
                                 Password must be between 2-8 characters long and only contain alphanumeric characters!
                             </div>

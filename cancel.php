@@ -10,6 +10,7 @@ if(!isset($_SESSION['username']) || !isset($_SESSION['password']))
 
 ?>
 
+<?php $log->Action($_SESSION['username'], 'Cancel', 'Order was cancelled'); ?>
 <div class="container">
     <div class="row">
         <div class="content col s12">
