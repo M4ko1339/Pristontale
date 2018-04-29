@@ -54,6 +54,68 @@ Class User
     }
 }
 
+Class News
+{
+    public function List()
+    {
+        global $con;
+
+        $data = $con->prepare('SELECT * FROM news ORDER BY id DESC');
+        $data->execute();
+
+        return $data->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function Show($id)
+    {
+        global $con;
+
+        $data = $con->prepare('SELECT * FROM news WHERE id = :id');
+        $data->execute(array(
+            ':id' => (int)$id
+        ));
+
+        return $data->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function Add($title, $banner, $content)
+    {
+        global $con;
+
+        $data = $con->prepare('INSERT INTO news (news_title, news_banner, news_content, post_date)
+        VALUES(:title, :banner, :content, :pdate)');
+        $data->execute(array(
+            ':title'   => $title,
+            ':banner'  => $banner,
+            ':content' => $content,
+            ':pdate'   => time()
+        ));
+    }
+
+    public function Edit($id, $title, $banner, $content)
+    {
+        global $con;
+
+        $data = $con->prepare('UPDATE news SET news_title = :title, news_banner = :banner, news_content = :content WHERE id = :id');
+        $data->execute(array(
+            ':id'      => (int)$id,
+            ':title'   => $title,
+            ':banner'  => $banner,
+            ':content' => $content
+        ));
+    }
+
+    public function Delete($id)
+    {
+        global $con;
+
+        $data = $con->prepare('DELETE * FROM news WHERE id = :id');
+        $data->execute(array(
+            ':id' => (int)$id
+        ));
+    }
+}
+
 Class Admin
 {
     public function Transactions()
