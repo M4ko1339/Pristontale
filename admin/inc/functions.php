@@ -56,7 +56,7 @@ Class User
 
 Class News
 {
-    public function List()
+    public function All()
     {
         global $con;
 
@@ -87,7 +87,7 @@ Class News
         $data->execute(array(
             ':title'   => $title,
             ':banner'  => $banner,
-            ':content' => $content,
+            ':content' => nl2br($content),
             ':pdate'   => time()
         ));
     }
@@ -109,10 +109,30 @@ Class News
     {
         global $con;
 
-        $data = $con->prepare('DELETE * FROM news WHERE id = :id');
+        $data = $con->prepare('DELETE FROM news WHERE id = :id');
         $data->execute(array(
             ':id' => (int)$id
         ));
+    }
+
+
+    public function Duplicate($title)
+    {
+        global $con;
+
+        $data = $con->prepare('SELECT COUNT(*) FROM news WHERE news_title = :title');
+        $data->execute(array(
+            ':title' => $title
+        ));
+
+        if($data->fetchColumn() == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
 

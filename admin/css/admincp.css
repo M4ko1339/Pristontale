@@ -54,3 +54,24 @@ tr:nth-child(even)
 {
     background-color: #EEE;
 }
+
+.options
+{
+    padding: 0px !important;
+    margin-bottom: 10px;
+}
+
+.fa-edit
+{
+    color: #3498db;
+}
+
+.fa-trash
+{
+    color: #e74c3c;
+}
+
+textarea
+{
+    min-height: 250px !important;
+}

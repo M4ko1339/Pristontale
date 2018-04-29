@@ -4,15 +4,16 @@ session_start();
 
 include('inc/db.php');
 include('inc/functions.php');
-
+/*
 if(!isset($_SESSION['username']) && !isset($_SESSION['password']))
 {
     header('Location: login.php');
     exit;
 }
-
+*/
 $admin = new Admin();
 $user  = new User();
+$news  = new News();
 
 $user->Logout();
 
@@ -44,7 +45,7 @@ $user->Logout();
 
             <div class="header-menu col s12 m9">
                 <ul>
-                    <li><a href="index.php" <?php echo (basename($_SERVER["PHP_SELF"]) == "index.php" || "")?"class=\"current-nav\"":""; ?>>Tools</a></li>
+                    <li><a href="index.php" <?php echo (basename($_SERVER["PHP_SELF"]) == "index.php" || "")?"class=\"current-nav\"":""; ?>>News</a></li>
                     <li><a href="transactions.php" <?php echo (basename($_SERVER["PHP_SELF"]) == "transactions.php")?"class=\"current-nav\"":""; ?>>Transactions</a></li>
                     <li><a href="purchases.php" <?php echo (basename($_SERVER["PHP_SELF"]) == "purchases.php")?"class=\"current-nav\"":""; ?>>Purchases</a></li>
                     <li><a href="?logout=true" class="red-text">Logout</a></li>
