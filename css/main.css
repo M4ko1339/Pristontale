@@ -185,6 +185,40 @@ h4
 
 }
 
+.content-box
+{
+    background-color: #111;
+    border: 1px #222 solid;
+}
+
+.ranking-table th
+{
+    background-color: #111;
+    padding: 10px;
+    border-bottom: 1px #222 solid;
+    font-family: 'Ropa Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+
+.ranking-table tr:nth-child(odd)
+{
+    background-color: #000;
+}
+
+.ranking-table td
+{
+    padding: 10px;
+}
+
+.content-box-header
+{
+    height: 40px;
+    background-color: #222;
+    padding: 10px;
+    text-align: center;
+}
+
 .news-box
 {
     background-color: #222;

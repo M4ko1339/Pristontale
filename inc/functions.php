@@ -500,4 +500,61 @@ Class Datafile
     }
 }
 
+Class Store
+{
+    var $root = "";
+
+    public function UserInfo($file)
+    {
+        global $con_game;
+
+        $files = scandir($root . $dir, 1);
+
+        print_r($files);
+    }
+}
+
+Class Ranking
+{
+    public function Level()
+    {
+        global $con_clan;
+
+        $data = $con_clan->prepare("SELECT DISTINCT ChName, ChType, ChLv FROM playerlevels ORDER BY ChLv DESC");
+        $data->execute();
+
+        return $data->fetchAll(PDO::FETCH_ASSOC);
+    }
+}
+
+/*
+$dirUserInfo = $rootDir."DataServer/userinfo/";    // rootdir  = dir server
+
+$charInfo=$dirUserInfo . ($func->numDir($qCharID)) . "/" . $qCharID . ".dat";
+
+if(!file_exists($charInfo))
+{
+    copy("criarchars/info.dat",$dirUserInfo . ($func->numDir($qCharID)) . "/" . $qCharID. ".dat");
+
+    $fRead=false;
+    $fOpen = fopen($charInfo, "r");
+    while (!feof($fOpen)) {
+    @$fRead = "$fRead" . fread($fOpen, filesize($charInfo) );
+    }
+    fclose($fOpen);
+
+    // Change character class ----------------------------------------------------------------
+    $sourceStr = substr($fRead, 0, 16) . $writeAccName . substr($fRead, 26);
+    $fOpen = fopen($charInfo, "wb");
+    fwrite($fOpen, $sourceStr, strlen($sourceStr));
+    fclose($fOpen);
+
+    echo "<br><center><font color=#CC0000><b>Aviso:</b></font><br><br>- FILE ID CREATED!<br><br><br>";
+}
+
+83.128.56.65 Is the gameserver IP
+It's stored here.
+C:\Users\agency\Desktop\Pristontale EU\Server\DataServer\userinfo
+*/
+
 ?>

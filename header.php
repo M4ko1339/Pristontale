@@ -50,10 +50,10 @@ $log = new Logging();
                     <li><a href="index.php" <?php echo (basename($_SERVER["PHP_SELF"]) == "index.php" || "")?"class=\"current-nav\"":""; ?>>Home</a></li>
                     <!--<li><a href="guides.php" <?php echo (basename($_SERVER["PHP_SELF"]) == "guides.php")?"class=\"current-nav\"":""; ?>>Guides</a></li>-->
                     <li><a href="/forums">Forums</a></li>
-                    <!--<li><a href="#">Leaderboards</a></li>-->
-		    <li><a href="http://www.xtremetop100.com/in.php?site=1132364908">Vote</a></li>
-		    <li><a href="https://discord.gg/tvAT567">Discord</a></li>
-		    <li><a href="shop.php">Game Shop</a></li>
+                    <li><a href="ranking.php" <?php echo (basename($_SERVER["PHP_SELF"]) == "ranking.php")?"class=\"current-nav\"":""; ?>>Ranking</a></li>
+        		    <li><a href="http://www.xtremetop100.com/in.php?site=1132364908">Vote</a></li>
+        		    <li><a href="https://discord.gg/tvAT567">Discord</a></li>
+        		    <li><a href="shop.php">Game Shop</a></li>
                     <!--<li><a href="clans.php" <?php echo (basename($_SERVER["PHP_SELF"]) == "clans.php")?"class=\"current-nav\"":""; ?>>Clans</a></li>-->
                     <li><a href="download.php" <?php echo (basename($_SERVER["PHP_SELF"]) == "download.php")?"class=\"current-nav\"":"class=\"green-text\""; ?>>Download Client</a></li>
                 </ul>
