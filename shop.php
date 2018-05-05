@@ -19,6 +19,10 @@ $shop = new Shop();
                 <label>Game Store</label>
             </div>
 
+            <div class="shop-menu col s12">
+                <a href="donate.php" class="btn right"><i class="fas fa-shopping-cart"></i> Buy Coins</a>
+            </div>
+
             <div class="shop">
                 <table class="shop-table">
                     <th>Item</th>

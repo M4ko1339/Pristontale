@@ -596,6 +596,17 @@ h4
     text-align: right;
 }
 
+.shop-menu
+{
+    margin-bottom: 10px;
+}
+
+.fa-shopping-cart
+{
+    font-size: 1rem !important;
+    padding-right: 5px;
+}
+
 .donate-table
 {
     width: 100%;
