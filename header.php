@@ -33,6 +33,16 @@ $log = new Logging();
     <link rel="stylesheet" type="text/css" href="css/materialize.min.css" media="screen,projection">
     <link rel="stylesheet" type="text/css" href="css/main.css" media="screen,projection">
     <link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css" media="screen,projection">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-100691014-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-100691014-3');
+    </script>
 </head>
 <body>
 
