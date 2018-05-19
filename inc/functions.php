@@ -520,7 +520,7 @@ Class Ranking
     {
         global $con_clan;
 
-        $data = $con_clan->prepare("SELECT DISTINCT ChName, ChType, ChLv FROM playerlevels ORDER BY ChLv, realtime DESC");
+        $data = $con_clan->prepare("SELECT TOP 50 * FROM playerlevels ORDER BY ChLv DESC");
         $data->execute();
 
         return $data->fetchAll(PDO::FETCH_ASSOC);

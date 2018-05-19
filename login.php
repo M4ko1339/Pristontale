@@ -24,7 +24,7 @@ $user = new User();
                     </div>
 
                     <div class="input-field col s12">
-                        <center><div class="g-recaptcha" data-sitekey="6Lcov0cUAAAAAODiqQ1GnEAhPKDxzS0LiX4hdAd4"></div></center>
+                        <center><div class="g-recaptcha" data-sitekey="<?php echo CAPTCHA_CLIENT; ?>"></div></center>
                     </div>
 
                     <div class="input-field col s12 center">

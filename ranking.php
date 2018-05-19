@@ -32,7 +32,7 @@ $standing = 0;
 
         <div class="content col s12">
             <div class="content-box-header yellow-text">
-                Top Players
+                Top 50 Players
             </div>
 
             <div class="content-box">
